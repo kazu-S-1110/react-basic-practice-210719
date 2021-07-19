@@ -1,6 +1,10 @@
 import styles from './App.module.css';
+import { useState } from 'react';
 
 export const App = () => {
+  const [inCompleteTodos, setInCompleteTodos] = useState(['todo1', 'todo2']);
+  const [completeTodos, setCompleteTodos] = useState('todo3');
+
   return (
     <>
       <div className={styles.input_area}>
@@ -10,29 +14,30 @@ export const App = () => {
       <div className={styles.incomplete_area}>
         <p className={styles.title}>Non-completeList</p>
         <ul>
-          <li className={styles.list_row}>
-            <div>todo1</div>
-            <button>Finish</button>
-            <button>Delete</button>
-          </li>
-          <li className={styles.list_row}>
-            <div>todo2</div>
-            <button>Finish</button>
-            <button>Delete</button>
-          </li>
+          {inCompleteTodos.map((todo) => {
+            return (
+              <li key={todo} className={styles.list_row}>
+                <div>{todo}</div>
+                <button>Finish</button>
+                <button>Delete</button>
+              </li>
+            );
+          })}
         </ul>
       </div>
       <div className={styles.complete_area}>
-        <p className={styles.title}>
-          CompleteList
-          <ul>
-            <li className={styles.list_row}>
-              <div>todo3</div>
-              <button>Finish</button>
-              <button>Delete</button>
-            </li>
-          </ul>
-        </p>
+        <p className={styles.title}>CompleteList</p>
+        <ul>
+          {completeTodos.map((todo) => {
+            return (
+              <li key={todo} className={styles.list_row}>
+                <div>{todo}</div>
+                <button>Finish</button>
+                <button>Delete</button>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </>
   );
