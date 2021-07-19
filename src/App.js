@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <>
+      <div>
+        <input type="text" placeholder="input Todo"></input>
+        <button>Add</button>
+      </div>
+      <div>
+        <p>Non-completeList</p>
+        <ul>
+          <li>
+            <div>todo1</div>
+            <button>Finish</button>
+            <button>Delete</button>
+          </li>
+          <li>
+            <div>todo2</div>
+            <button>Finish</button>
+            <button>Delete</button>
+          </li>
+        </ul>
+      </div>
+      <div>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          CompleteList
+          <ul>
+            <li>
+              <div>todo3</div>
+              <button>Finish</button>
+              <button>Delete</button>
+            </li>
+          </ul>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      </div>
+    </>
   );
-}
+};
 
 export default App;
