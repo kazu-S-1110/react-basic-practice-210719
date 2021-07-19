@@ -3,13 +3,31 @@ import { useState } from 'react';
 
 export const App = () => {
   const [inCompleteTodos, setInCompleteTodos] = useState(['todo1', 'todo2']);
-  const [completeTodos, setCompleteTodos] = useState('todo3');
+  const [completeTodos, setCompleteTodos] = useState(['todo3']);
+  const [inputText, setInputText] = useState('');
 
   return (
     <>
       <div className={styles.input_area}>
-        <input type="text" placeholder="input Todo"></input>
-        <button>Add</button>
+        <input
+          type="text"
+          placeholder="input Todo"
+          value={inputText}
+          onChange={(e) => setInputText(e.target.value)}
+        ></input>
+        <button
+          onClick={
+            inputText !== ''
+              ? () =>
+                  setInCompleteTodos(
+                    [...inCompleteTodos, inputText],
+                    setInputText('')
+                  )
+              : ''
+          }
+        >
+          Add
+        </button>
       </div>
       <div className={styles.incomplete_area}>
         <p className={styles.title}>Non-completeList</p>
