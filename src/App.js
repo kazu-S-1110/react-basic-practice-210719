@@ -1,30 +1,32 @@
+import styles from './App.module.css';
+
 export const App = () => {
   return (
     <>
-      <div>
+      <div className={styles.input_area}>
         <input type="text" placeholder="input Todo"></input>
         <button>Add</button>
       </div>
-      <div>
-        <p>Non-completeList</p>
+      <div className={styles.incomplete_area}>
+        <p className={styles.title}>Non-completeList</p>
         <ul>
-          <li>
+          <li className={styles.list_row}>
             <div>todo1</div>
             <button>Finish</button>
             <button>Delete</button>
           </li>
-          <li>
+          <li className={styles.list_row}>
             <div>todo2</div>
             <button>Finish</button>
             <button>Delete</button>
           </li>
         </ul>
       </div>
-      <div>
-        <p>
+      <div className={styles.complete_area}>
+        <p className={styles.title}>
           CompleteList
           <ul>
-            <li>
+            <li className={styles.list_row}>
               <div>todo3</div>
               <button>Finish</button>
               <button>Delete</button>
