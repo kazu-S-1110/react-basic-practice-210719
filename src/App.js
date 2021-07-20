@@ -1,5 +1,7 @@
 import styles from './App.module.css';
 import { useState } from 'react';
+import InputTodo from './components/InputTodo';
+import IncompleteTodos from './components/IncompleteTodos';
 
 export const App = () => {
   const [inCompleteTodos, setInCompleteTodos] = useState(['todo1', 'todo2']);
@@ -31,29 +33,17 @@ export const App = () => {
 
   return (
     <>
-      <div className={styles.input_area}>
-        <input
-          type="text"
-          placeholder="input Todo"
-          value={inputText}
-          onChange={(e) => setInputText(e.target.value)}
-        ></input>
-        <button onClick={addTodo}>Add</button>
-      </div>
-      <div className={styles.incomplete_area}>
-        <p className={styles.title}>Non-completeList</p>
-        <ul>
-          {inCompleteTodos.map((todo, index) => {
-            return (
-              <li key={todo} className={styles.list_row}>
-                <div>{todo}</div>
-                <button onClick={() => finishTodo(index, todo)}>Finish</button>
-                <button onClick={() => deleteTodo(index)}>Delete</button>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+      <InputTodo
+        inputText={inputText}
+        setInputText={setInputText}
+        addTodo={addTodo}
+      />
+      <IncompleteTodos
+        inCompleteTodos={inCompleteTodos}
+        finishTodo={finishTodo}
+        deleteTodo={deleteTodo}
+      />
+
       <div className={styles.complete_area}>
         <p className={styles.title}>CompleteList</p>
         <ul>

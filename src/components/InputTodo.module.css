@@ -1,0 +1,27 @@
+body {
+  font-family: sans-serif;
+}
+input {
+  border-radius: 16px;
+  border: none;
+  padding: 6px 16px;
+  outline: none;
+}
+button{
+  border-radius: 16px;
+  border: none;
+  padding: 4px 16px;
+  margin-left: 10px;
+}
+button:hover {
+  background-color: #ff7fff;
+  color: #fff;
+  cursor: pointer;
+}
+.input_area{
+  background-color: #c1ffff;
+  width: 40vw;
+  height: 30px;
+  padding: 8px;
+  margin: 8px;
+}

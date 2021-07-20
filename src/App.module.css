@@ -22,13 +22,7 @@ li {
   margin-right: 8px;
 }
 
-.input_area{
-  background-color: #c1ffff;
-  width: 40vw;
-  height: 30px;
-  padding: 8px;
-  margin: 8px;
-}
+
 .incomplete_area{
   background-color: #c6ffe2;
   width: 80vw;
