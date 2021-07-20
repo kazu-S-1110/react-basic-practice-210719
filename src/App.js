@@ -15,6 +15,13 @@ export const App = () => {
     newTodos.splice(index, 1);
     setInCompleteTodos(newTodos);
   };
+  const finishTodo = (index, todo) => {
+    deleteTodo(index);
+    setCompleteTodos([...completeTodos, todo]);
+    //講習での書き方（参考）
+    // const newIncompleteTodos = [...inCompleteTodos];
+    // const newCompleteTodos = [...completeTodos, inCompleteTodos[index]];
+  };
 
   return (
     <>
@@ -34,7 +41,7 @@ export const App = () => {
             return (
               <li key={todo} className={styles.list_row}>
                 <div>{todo}</div>
-                <button>Finish</button>
+                <button onClick={() => finishTodo(index, todo)}>Finish</button>
                 <button onClick={() => deleteTodo(index)}>Delete</button>
               </li>
             );
