@@ -22,6 +22,12 @@ export const App = () => {
     // const newIncompleteTodos = [...inCompleteTodos];
     // const newCompleteTodos = [...completeTodos, inCompleteTodos[index]];
   };
+  const backTodo = (index, todo) => {
+    const newTodos = [...completeTodos];
+    newTodos.splice(index, 1);
+    setCompleteTodos(newTodos);
+    setInCompleteTodos([...inCompleteTodos, todo]);
+  };
 
   return (
     <>
@@ -51,11 +57,11 @@ export const App = () => {
       <div className={styles.complete_area}>
         <p className={styles.title}>CompleteList</p>
         <ul>
-          {completeTodos.map((todo) => {
+          {completeTodos.map((todo, index) => {
             return (
               <li key={todo} className={styles.list_row}>
                 <div>{todo}</div>
-                <button>Back</button>
+                <button onClick={() => backTodo(index, todo)}>Back</button>
               </li>
             );
           })}
